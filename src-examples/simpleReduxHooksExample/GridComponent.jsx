@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import {Context} from "./store";
-import {AgGridReact} from "@ag-grid-community/react";
-import {AllModules} from "@ag-grid-enterprise/all-modules";
+import {AgGridReact} from "ag-grid-react";
 
 /*
  * This component serves to display the row data (provided by redux)
@@ -22,7 +21,6 @@ export default function GridComponent() {
                 // properties
                 columnDefs={columnDefs}
                 rowData={rowData}
-                modules={AllModules}
 
                 defaultColDef={{filter: true}}
 

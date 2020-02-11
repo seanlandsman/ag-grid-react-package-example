@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {AgGridReact} from "@ag-grid-community/react";
-import {ClientSideRowModelModule} from "@ag-grid-enterprise/all-modules";
+import {AgGridReact} from "ag-grid-react";
 
 class TopMoversGrid extends Component {
     constructor(props) {
@@ -75,8 +74,6 @@ class TopMoversGrid extends Component {
                     animateRows
                     deltaRowDataMode
                     getRowNodeId={this.getRowNodeId}
-
-                    modules={[ClientSideRowModelModule]}
 
                     // events
                     onGridReady={this.onGridReady}>

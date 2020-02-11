@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
-import {AgGridReact} from "@ag-grid-community/react";
-import {ClientSideRowModelModule} from "@ag-grid-enterprise/all-modules";
+import {AgGridReact} from "ag-grid-react";
 
 import map from "lodash/map";
 import difference from "lodash/difference";
@@ -160,8 +159,6 @@ export default class extends Component {
                         sortable: true
                     }}
                     rowSelection="single"
-
-                    modules={[ClientSideRowModelModule]}
 
                     // callbacks
                     getRowNodeId={this.getRowNodeId}

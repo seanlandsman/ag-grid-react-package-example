@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import SimpleCellRenderer from './simpleCellRenderer.jsx';
-import {AgGridReact} from '@ag-grid-community/react';
-
-// for community features
-import {AllModules} from "@ag-grid-enterprise/all-modules";
-
-// for enterprise features
-// import {AllModules} from "@ag-grid-enterprise/all-modules";
+import {AgGridReact} from 'ag-grid-react';
 
 export default class MyApp extends Component {
 
@@ -64,7 +58,7 @@ export default class MyApp extends Component {
     render() {
         return (
             <div style={{height: '100%'}} className="ag-theme-balham">
-                <AgGridReact columnDefs={this.state.columnDefs} rowData={this.state.rowData} modules={AllModules}/>
+                <AgGridReact columnDefs={this.state.columnDefs} rowData={this.state.rowData} />
             </div>
         );
     }
