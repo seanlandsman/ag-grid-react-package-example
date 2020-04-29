@@ -71,7 +71,7 @@ export default class extends Component {
 
         // make realistic - call in a batch
         let rowData = map(this.props.selectedExchange.supportedStocks, symbol => this.exchangeService.getTicker(symbol));
-        this.gridApi.updateRowData({add: rowData});
+        this.gridApi.applyTransaction({add: rowData});
 
         // select the first symbol to show the chart
         this.gridApi.getModel().getRow(0).setSelected(true);
@@ -122,7 +122,7 @@ export default class extends Component {
                     rowsToRemove.push(data);
                 }
             });
-            this.gridApi.updateRowData({remove: rowsToRemove});
+            this.gridApi.applyTransaction({remove: rowsToRemove});
 
             // Subscribe to new ones that need to be added
             const symbolsAdded = difference(nextSymbols, currentSymbols);
@@ -132,7 +132,7 @@ export default class extends Component {
 
             // Insert new ag-grid nodes as necessary
             let rowData = map(symbolsAdded, symbol => this.exchangeService.getTicker(symbol));
-            this.gridApi.updateRowData({add: rowData});
+            this.gridApi.applyTransaction({add: rowData});
 
             // select the first symbol to show the chart
             this.gridApi.getModel().getRow(0).setSelected(true);
@@ -145,7 +145,7 @@ export default class extends Component {
             return;
         }
 
-        this.gridApi.updateRowData({update: [symbol]});
+        this.gridApi.applyTransaction({update: [symbol]});
     }
 
     render() {

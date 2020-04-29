@@ -72,7 +72,7 @@ class TopMoversGrid extends Component {
                         filter: false
                     }}
                     animateRows
-                    deltaRowDataMode
+                    immutableData
                     getRowNodeId={this.getRowNodeId}
 
                     // events
