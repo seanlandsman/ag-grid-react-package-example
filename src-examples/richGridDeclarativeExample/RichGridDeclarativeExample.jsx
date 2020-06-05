@@ -40,6 +40,8 @@ export default class RichGridDeclarativeExample extends Component {
         this.api = params.api;
         this.columnApi = params.columnApi;
 
+        this.api.sizeColumnsToFit();
+
         this.calculateRowCount();
     };
 
@@ -126,7 +128,7 @@ export default class RichGridDeclarativeExample extends Component {
 
     render() {
         return (
-            <div style={{width: '900px'}}>
+            <div style={{width: '100%'}}>
                 <h1>Rich Grid with Declarative Markup Example</h1>
                 <div style={{display: "inline-block", width: "100%"}}>
                     <div style={{float: "left"}}>
@@ -138,19 +140,19 @@ export default class RichGridDeclarativeExample extends Component {
                         <span>
                             Grid API:
                             <button onClick={() => {
-                                this.api.selectAll()
+                                this.api.selectAll();
                             }} className="btn btn-primary">Select All</button>
                             <button onClick={() => {
-                                this.api.deselectAll()
+                                this.api.deselectAll();
                             }} className="btn btn-primary">Clear Selection</button>
                         </span>
                         <span style={{float: "right"}}>
                             Column API:
                             <button onClick={() => {
-                                this.columnApi.setColumnVisible('country', false)
+                                this.columnApi.setColumnVisible('country', false);
                             }} className="btn btn-primary">Hide Country Column</button>
                             <button onClick={() => {
-                                this.columnApi.setColumnVisible('country', true)
+                                this.columnApi.setColumnVisible('country', true);
                             }} className="btn btn-primary">Show Country Column</button>
                         </span>
                     </div>
@@ -179,7 +181,7 @@ export default class RichGridDeclarativeExample extends Component {
                                    placeholder="Type text to filter..."/>
                         </div>
                     </div>
-                    <div style={{height: 400, width: 900}} className="ag-theme-balham">
+                    <div style={{height: 650, width: '100%'}} className="ag-theme-alpine">
                         <AgGridReact
                             // listening for events
                             onGridReady={this.onGridReady}
