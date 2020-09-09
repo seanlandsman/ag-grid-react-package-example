@@ -8,14 +8,14 @@ class PriceRenderer extends Component {
         super(props);
 
         this.state = {
-            convertedValue: this.applyExchangeRate(props.exchangeRate, props.value)
+            convertedValue: PriceRenderer.applyExchangeRate(props.exchangeRate, props.value)
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            convertedValue: this.applyExchangeRate(nextProps.exchangeRate, nextProps.value)
-        })
+    static getDerivedStateFromProps(props, state) {
+        return {
+            convertedValue: PriceRenderer.applyExchangeRate(props.exchangeRate, props.value)
+        }
     }
 
     render() {
@@ -27,7 +27,7 @@ class PriceRenderer extends Component {
         );
     }
 
-    applyExchangeRate = (exchangeRate, value) => {
+    static applyExchangeRate = (exchangeRate, value) => {
         return parseFloat(value * exchangeRate).toFixed(2); // simplified/naive exchange rate implementation!
     }
 }
